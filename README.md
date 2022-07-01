@@ -15,12 +15,37 @@ Opening the html file will take the user to a site that looks just like the imag
 ~~~
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
 ~~~
-In the Filter Search section of the HTML file the various inputs are added with list tags(<li/>). An example of the list tag is provided below; the important part is to make sure the id is listed exactly as it is in the data.
+In the Filter Search section of the HTML file the various inputs are added with list tags(<li/>). The list tags are provided below; the important part is to make sure the id is listed exactly as it is in the data.
 ~~~
-<li class="list-group-item bg-dark">
-    <label for="state">Enter State</label>
-    <input type="text" placeholder="co" id="state">
-</li>
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <form class="bg-dark">
+                    <p>Filter Search</p>
+                    <ul class="list-group bg-dark" >
+                        <li class="list-group-item bg-dark">
+                            <label for="date">Enter Date</label>
+                            <input type="text" placeholder="1/10/2010" id="datetime" />
+                        </li>
+                        <li class="list-group-item bg-dark" >
+                            <label for="city">Enter City</label>
+                            <input type="text" placeholder="denver" id="city" />
+                        </li>
+                        <li class="list-group-item bg-dark">
+                            <label for="state">Enter State</label>
+                            <input type="text" placeholder="co" id="state">
+                        </li>
+                        <li class="list-group-item bg-dark">
+                            <label for="country">Country</label>
+                            <input type="text" placeholder="us" id="country">
+                        </li>
+                        <li class="list-group-item bg-dark">
+                            <label for="shape">Shape</label>
+                            <input type="text" placeholder="triangle" id="shape">
+                        </li>
+                    </ul>
+                </form>
+            </div>
 ~~~
 * Javascript: The Javascript code uses a buildTable() function to create the table from the data. Then is uses two functions to create the filters. The first function is below the filters variable as function updateFilters(). The goal of the function is just this: to update the filters it checks for if the element is changed and rebuilds the table if they are. At the end of the function is a call to the next function which is the fitlerTable() function. This function loops throughthe filters and keeps the data that matches the filtered values. The following code is used to 'listen' for the click or the Enter after the user adds an input:
 ~~~
